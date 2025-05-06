@@ -1,0 +1,84 @@
+.help {
+    width: 100%;
+    margin: auto;
+  }
+  
+  .subheading {
+    font-family: 'nyt-karnak';
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    margin: 0;
+  }
+  
+  .instructions {
+    font-family: 'nyt-franklin';
+    font-size: 16px;
+    line-height: 20px;
+    list-style-type: disc;
+    font-weight: 500;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    padding-inline-start: 20px; // TODO: NONDIRECTIONAL SPACING TOKEN REQUIRED
+    color: var(--color-tone-1);
+  
+    li {
+      margin-bottom: var(--vertical-spacing-0-5);
+    }
+  
+    li::marker {
+      font-size: 18px;
+    }
+  }
+  
+  .examples {
+    font-family: 'nyt-franklin';
+    border-bottom: 1px solid var(--gray-3);
+  
+    strong {
+      font-weight: bold;
+    }
+  
+    p,
+    h3 {
+      margin: 0;
+      font-size: 16px;
+      line-height: 20px;
+  
+      &.bold {
+        font-weight: bold;
+      }
+    }
+  }
+  
+  .example {
+    margin-top: var(--vertical-spacing-1);
+    margin-bottom: var(--vertical-spacing-2-5);
+  
+    p {
+      font-size: 16px;
+      line-height: 20px;
+      margin-top: var(--vertical-spacing-1);
+    }
+  }
+  
+  .tileContainer {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin-right: var(--horizontal-spacing-0-5);
+  }
+  
+  .reminder {
+    font-family: 'nyt-franklin';
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: var(--vertical-spacing-2-5);
+  }
+  
+  @media (max-width: 295px) {
+    .tileContainer {
+      height: 32px;
+    }
+  }
+  

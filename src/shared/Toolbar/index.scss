@@ -1,0 +1,59 @@
+@use '../scss-helpers/colors.scss';
+
+// light themed colors for the toolbar and dropdown
+.toolbarColors {
+  background-color: colors.$white;
+  color: colors.$newsGray100;
+
+  &_border {
+    border: 1px solid colors.$newsGray10;
+
+    &Bottom {
+      border: unset;
+      border-bottom: 1px solid colors.$newsGray10;
+    }
+  }
+
+  &:hover {
+    background-color: colors.$gray12;
+  }
+}
+
+// prevent touch hover style from persisting on devices that don't native support "hover", like mobile
+@media (hover: none) {
+  .toolbarColors {
+    &:hover {
+      background-color: colors.$white;
+    }
+  }
+}
+
+// dark themed colors for the toolbar and dropdown
+:global(.dark) {
+  .toolbarColors {
+    background-color: colors.$newsGray100;
+    color: colors.$newsDarkContentPrimary;
+
+    &_border {
+      border: 1px solid colors.$newsGray10;
+
+      &Bottom {
+        border: unset;
+        border-bottom: 1px solid colors.$gray27;
+      }
+    }
+
+    &:hover {
+      background-color: colors.$newsGray85;
+    }
+  }
+
+  // prevent touch hover style from persisting on devices that don't native support "hover", like mobile
+  @media (hover: none) {
+    .toolbarColors {
+      &:hover {
+        background-color: var(--color-tone-7);
+      }
+    }
+  }
+}

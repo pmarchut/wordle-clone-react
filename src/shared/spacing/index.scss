@@ -1,0 +1,59 @@
+/** 
+  * PLAYBOOK SPACING DESIGN TOKENS
+  */
+
+  :root {
+    /**
+      * Non Directional Spacing Tokens
+      * These tokens are used to define the spacing between elements that do not have a specific direction.  
+      */
+    --spacing-0-5: 4px;
+    --spacing-1: 8px;
+    --spacing-1-5: 12px;
+    --spacing-2: 16px;
+    --spacing-2-5: 20px;
+    --spacing-3: 24px;
+    --spacing-4: 32px;
+    --spacing-5: 40px;
+    --spacing-6: 48px;
+    --spacing-7: 56px;
+    --spacing-8: 64px;
+    --spacing-9: 72px;
+    --spacing-10: 80px;
+  
+    /**
+      * Horizontal Spacing Tokens 
+      * These tokens are used to define the horizontal spacing between elements.  
+      */
+    --horizontal-spacing-0-5: 4px;
+    --horizontal-spacing-1: 8px;
+    --horizontal-spacing-1-5: 12px;
+    --horizontal-spacing-2: 16px;
+    --horizontal-spacing-2-5: 20px;
+    --horizontal-spacing-3: 24px;
+    --horizontal-spacing-4: 32px;
+    --horizontal-spacing-5: 40px;
+    --horizontal-spacing-6: 48px;
+    --horizontal-spacing-7: 56px;
+    --horizontal-spacing-8: 64px;
+    --horizontal-spacing-9: 72px;
+    --horizontal-spacing-10: 80px; 
+    
+    /**
+      * Vertical Spacing Tokens 
+      * These tokens are used to define the vertical spacing between elements.  
+      */
+    --vertical-spacing-0-5: 4px;
+    --vertical-spacing-1: 8px;
+    --vertical-spacing-1-5: 12px;
+    --vertical-spacing-2: 16px;
+    --vertical-spacing-2-5: 20px;
+    --vertical-spacing-3: 24px;
+    --vertical-spacing-4: 32px;
+    --vertical-spacing-5: 40px;
+    --vertical-spacing-6: 48px;
+    --vertical-spacing-7: 56px;
+    --vertical-spacing-8: 64px;
+    --vertical-spacing-9: 72px;
+    --vertical-spacing-10: 80px;
+}

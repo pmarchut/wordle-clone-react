@@ -1,0 +1,93 @@
+@use './shared/scss-helpers/fonts.scss';
+@use './shared/scss-helpers/mixins.scss';
+
+// devices
+$ipadMinWidth: 768px;
+$ipadMaxWidth: 1025px;
+
+// make the header/subheader text break consistent across platforms
+$textWidth_loginForm_heading-mobile: 400px;
+$textWidth_loginForm_heading-ipad: 470px;
+$textWidth_loginForm_heading-desktop: 470px;
+$textWidth_loginForm_subheading-mobile: 320px;
+$textWidth_loginForm_subheading-ipad: 390px;
+$textWidth_loginForm_subheading-desktop: 420px;
+
+$textWidth_regiwall_heading-mobile: 260px;
+$textWidth_regiwall_heading-ipad: 300px;
+$textWidth_regiwall_heading-desktop: 330px;
+
+// primary button
+@mixin button-styles {
+  position: relative;
+  border: none;
+  height: 3em;
+  border-radius: 1.5em;
+  align-content: center;
+  letter-spacing: 0.05em;
+  font-size: 16px;
+  font-family: 'nyt-franklin';
+  line-height: 28px;
+  cursor: pointer;
+  padding: 0 2em;
+}
+
+@mixin button-container-styles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column-reverse;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+// functional styles -------------------------------------
+.flexCenter {
+  @include mixins.flexbox(column);
+}
+
+// Regiwall
+.regiwallText {
+  letter-spacing: 0;
+  text-transform: none;
+  text-align: center;
+  display: block;
+
+  &_heading {
+    font: fonts.$weight-bold 36px fonts.$karnak-condensed;
+    line-height: 115%;
+    margin: var(--vertical-spacing-1) 0;
+
+    &_condensed {
+      font: fonts.$weight-book 28px fonts.$karnak;
+      line-height: 115%;
+      margin: var(--vertical-spacing-1) 0;
+      width: $textWidth_regiwall_heading-mobile;
+
+      // iPad styles
+      @media (min-width: $ipadMinWidth) and (max-width: $ipadMaxWidth) {
+        font-size: 32px;
+        width: $textWidth_regiwall_heading-ipad;
+      }
+
+      // Desktop styles
+      @media (min-width: $ipadMaxWidth) {
+        font-size: 36px;
+        width: $textWidth_regiwall_heading-desktop;
+      }
+    }
+  }
+
+  &_subheading {
+    font: fonts.$weight-book 24px fonts.$karnak;
+    line-height: 120%;
+    width: $textWidth_regiwall_heading-mobile;
+  }
+
+  &_link {
+    color: var(--color-tone-1);
+    font: fonts.$weight-medium-bold 16px fonts.$franklin;
+    line-height: 20.8px;
+    text-decoration: underline;
+  }
+}

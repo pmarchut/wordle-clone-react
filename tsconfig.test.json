@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "jsx": "react-jsx",
+        "module": "CommonJS", // ← WAŻNE dla środowiska Node używanego przez Jest
+        "baseUrl": "./",
+        "paths": {
+            "@/*": ["src/*"]
+        },
+    },
+    "include": ["src", "src/types", "tests"],
+}

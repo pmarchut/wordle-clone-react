@@ -1,0 +1,231 @@
+@use './shared/scss-helpers/colors.scss';
+
+/**
+All colors referenced here are defined in src/shared/scss-helpers/colors.scss.
+The intent is to define colors in the scss-helpers file (written in SASS), and
+refernce them here as CSS custom properties (aka CSS variables), for now, in order to
+separate concerns, while causing minimal disruption to Wordle color refernces.
+
+To add to this file
+1. Make sure the color doesn't already exist in src/shared/scss-helpers/colors.scss
+2. If it doesn't exist, add the color to `src/shared/scss-helpers/colors.scss` and create a
+   reference under Global Colors > :root in this file
+3. If it exists, create a reference under Global Colors > :root
+4. Use the CSS Custom Property whereever you want in Wordle!
+
+Explanation on combining SASS variables and CSS Custom Properties
+https://dev.to/nicm42/combining-sass-variables-with-css-custom-properties-5hj7
+**/
+
+// Global Colors
+:root {
+  --green: #{colors.$wordleGreen};
+  --green-4: #{colors.$green4};
+  --beta-blue: #{colors.$blue3};
+  --wordle-high-contrast-green: #{colors.$wordleHighContrastGreen};
+
+  --wordleGray: #{colors.$gray13};
+  --strandsGreen: #{colors.$strands-seafoam};
+  --spellingBeeYellow: #{colors.$spelling-bee-gold};
+  --miniCrosswordBlue: #{colors.$mini-crossword-blue};
+  --connectionsPeriwinkle: #{colors.$connections-periwinkle};
+  --sudoku-orange: #{colors.$sudoku-orange};
+  --tiles-green: #{colors.$tiles-green};
+  --dailyCrosswordBlue: #{colors.$daily-crossword-blue};
+  --yellow-3: #{colors.$yellow3};
+  --yellow-4: #{colors.$yellow4};
+
+  --newsGray-10: #{colors.$newsGray10};
+  --newsGray-100: #{colors.$newsGray100};
+  --newsGray-85: #{colors.$newsGray85};
+
+  --gray-3: #{colors.$gray3};
+  --gray-4: #{colors.$gray4};
+  --gray-6: #{colors.$gray6}; //f4
+  --gray-13: #{colors.$gray13};
+  --gray-18: #{colors.$gray18};
+  --gray-19: #{colors.$gray19};
+  --gray-20: #{colors.$gray20};
+  --gray-21: #{colors.$gray21};
+  --gray-22: #{colors.$gray22};
+  --gray-23: #{colors.$gray23};
+  --gray-24: #{colors.$gray24};
+  --gray-25: #{colors.$gray25};
+  --gray-26: #{colors.$gray26};
+  --gray-27: #{colors.$gray27};
+  --gray-28: #{colors.$gray28};
+  --gray-29: #{colors.$gray29};
+
+  --black: #{colors.$black};
+  --white: #{colors.$white};
+  --newsDarkContentPrimary: #{colors.$newsDarkContentPrimary};
+  --wordleBlack: #{colors.$wordleBlack};
+  --wordleBlack-2: #{colors.$wordleBlack2};
+  --wordleBlack-3: #{colors.$wordleBlack3};
+  --wordleBlack-4: #{colors.$wordleBlack4};
+  --wordleBlack-5: #{colors.$wordleBlack5};
+
+  --linkBlue: #{colors.$newsLightContentAccent};
+  --linkDarkBlue: #{colors.$newsDarkContentAccent};
+
+  /* Colorblind colors */
+  --orange: #{colors.$wordleColorblindOrange};
+  --blue: #{colors.$wordleColorblindBlue};
+  --outlineBlue: #{colors.$outlineBlue};
+
+  /* sb-promo */
+  --svg-arrow-fill: var(--white);
+  --svg-arrow-stroke: var(--black);
+  --svg-arrow-fill-hover: var(--black);
+  --svg-arrow-stroke-hover: var(--white);
+}
+
+/* Light theme colors */
+:root {
+  --color-tone-1: var(--black);
+  --color-tone-2: var(--gray-18);
+  --color-tone-3: var(--gray-19);
+  --color-tone-4: var(--gray-13);
+  --color-tone-5: var(--gray-20);
+  --color-tone-6: var(--gray-21);
+  --color-tone-7: var(--white);
+  --color-tone-8: var(--newsGray-100);
+  --color-tone-9: var(--newsGray-10);
+  --color-tone-10: var(--black);
+  --color-tone-11: var(--gray-18);
+  --color-tone-12: var(--newsGray-85);
+  --color-tone-13: var(--gray-6);
+  --color-nav-hover: var(--gray-6);
+  --opacity-50: rgba(255, 255, 255, 0.5);
+  --error-background: var(--gray-22);
+  --icon-disabled: var(--gray-23);
+  --background-gray: var(--gray-29);
+
+  --inline-links: var(--linkBlue);
+
+  /* stats selection tool */
+  --warning-red: #d0021b;
+}
+
+/* Dark Theme Colors */
+.dark {
+  --color-tone-1: var(--newsDarkContentPrimary);
+  --color-tone-2: var(--gray-24);
+  --color-tone-3: var(--gray-25);
+  --color-tone-4: var(--gray-26);
+  --color-tone-5: var(--wordleBlack-2);
+  --color-tone-6: var(--wordleBlack-3);
+  --color-tone-7: var(--wordleBlack-4);
+  --color-tone-8: var(--newsDarkContentPrimary);
+  --color-tone-9: var(--gray-27);
+  --color-tone-10: var(--newsGray-10);
+  --color-tone-11: var(--newsGray-10);
+  --color-tone-12: var(--newsGray-10);
+  --color-tone-13: var(--newsGray-85);
+  --color-nav-hover: var(--wordleBlack-5);
+  --opacity-50: rgba(0, 0, 0, 0.5);
+  --error-background: var(--color-tone-7);
+  --icon-disabled: var(--gray-28);
+
+  /* dark mode sb-promo */
+  --svg-arrow-fill: var(--black);
+  --svg-arrow-stroke: var(--white);
+  --svg-arrow-fill-hover: var(--white);
+  --svg-arrow-stroke-hover: var(--black);
+
+  --inline-links: var(--linkDarkBlue);
+
+  /* stats selection tool */
+  --warning-red: #ea7980;
+}
+
+/* Constant colors and colors derived from theme */
+:root,
+.dark {
+  --color-background: var(--color-tone-7);
+}
+
+:root {
+  /* Tile + text colors */
+  --color-present: var(--yellow-3);
+  --color-correct: var(--green);
+  --color-absent: var(--color-tone-2);
+  --tile-text-color: var(--color-tone-7);
+  --key-text-color: var(--color-tone-1);
+
+  /* Key colors */
+  --key-evaluated-text-color: var(--color-tone-7);
+  --key-bg: var(--color-tone-4);
+  --key-bg-present: var(--color-present);
+  --key-bg-correct: var(--color-correct);
+  --key-bg-absent: var(--color-absent);
+
+  /* Evaluated key text colors */
+  --key-evaluated-text-color: var(--color-tone-7);
+  --key-evaluated-text-color-absent: var(--white);
+
+  /* misc */
+  --modal-content-bg: var(--color-tone-7);
+  --outline-focus: var(--outlineBlue);
+
+  /* high contrast green only used in stats modal, for now */
+  --color-correct-high-contrast: var(--wordle-high-contrast-green);
+}
+
+.dark {
+  /* Tile + text colors - dark */
+  --modal-content-bg: var(--color-tone-7);
+  --outline-focus: var(--outlineBlue);
+}
+
+.dark {
+  /* Tile + text colors - dark */
+  --color-present: var(--yellow-4);
+  --color-correct: var(--green-4);
+  --color-absent: var(--color-tone-4);
+  --tile-text-color: var(--color-tone-1);
+  --key-text-color: var(--color-tone-1);
+
+  /* Key colors - dark */
+  --key-evaluated-text-color: var(--color-tone-1);
+  --key-bg: var(--color-tone-2);
+  --key-bg-present: var(--color-present);
+  --key-bg-correct: var(--color-correct);
+  --key-bg-absent: var(--color-absent);
+
+  /* Evaluated key text colors - dark */
+  --key-evaluated-text-color: var(--color-tone-8);
+  --key-evaluated-text-color-absent: var(--white);
+
+  /* misc */
+  --modal-content-bg: var(--color-tone-7);
+
+  /* If you have both dark + colorblind mode on */
+  &.colorblind {
+    --color-absent: var(--color-tone-4);
+    --key-bg-absent: var(--color-tone-4);
+  }
+}
+
+.colorblind {
+  /* Tile + text colors - colorblind */
+  --color-correct: var(--orange);
+  --color-present: var(--blue);
+  --color-absent: var(--color-tone-2);
+  --tile-text-color: var(--white);
+
+  /* Key colors - colorblind */
+  --key-bg-present: var(--color-present);
+  --key-bg-correct: var(--color-correct);
+  --key-bg-absent: var(--color-tone-2);
+
+  /* Evaluated key text colors - colorblind */
+  --key-evaluated-text-color: var(--black);
+  --key-evaluated-text-color-absent: var(--white);
+
+  /* corresponding color for high contrast green in stats modal */
+  --color-correct-high-contrast: var(--orange);
+
+  /* misc */
+  --modal-content-bg: var(--color-tone-7);
+}

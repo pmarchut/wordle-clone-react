@@ -1,0 +1,254 @@
+@use './shared/foundation/reset.scss';
+@use './colors.scss';
+@use './sharedStyles.scss';
+@use './shared/spacing/index.scss';
+
+/* NYT Fonts */
+@font-face {
+  font-family: 'nyt-karnak';
+  src:
+    url('/public/fonts/karnak/karnak-normal-400.woff2')
+      format('woff2'),
+    url('/public/fonts/karnak/karnak-normal-400.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'nyt-karnakcondensed';
+  src:
+    url('/public/fonts/karnakcondensed/karnakcondensed-normal-700.woff2')
+      format('woff2'),
+    url('/public/fonts/karnakcondensed/karnakcondensed-normal-700.woff')
+      format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'nyt-franklin';
+  src:
+    url('/public/fonts/franklin/franklin-normal-400.woff2')
+      format('woff2'),
+    url('/public/fonts/franklin/franklin-normal-400.woff')
+      format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'nyt-franklin';
+  src:
+    url('/public/fonts/franklin/franklin-normal-500.woff2')
+      format('woff2'),
+    url('/public/fonts/franklin/franklin-normal-500.woff')
+      format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'nyt-franklin';
+  src:
+    url('/public/fonts/franklin/franklin-normal-600.woff2')
+      format('woff2'),
+    url('/public/fonts/franklin/franklin-normal-600.woff')
+      format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'nyt-franklin';
+  src:
+    url('/public/fonts/franklin/franklin-normal-700.woff2')
+      format('woff2'),
+    url('/public/fonts/franklin/franklin-normal-700.woff')
+      format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Global Styles & Colors */
+:root {
+  font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  --header-height: 40px;
+  --header-toolbar-height: 49px;
+  --header-padding-x: var(--horizontal-spacing-2);
+  --keyboard-height: 200px;
+  --game-max-width: 500px;
+  --error-z-index: 500;
+  --toast-z-index: 1000;
+  --modal-z-index: 2000;
+  --page-z-index: 3000;
+  --system-toast-z-index: 4000;
+  --horizontal-warning-z-index: 5000;
+
+  /* icons
+  Note: Because these urls are stored as CSS variables, the /public path that
+  we typically use for assets isn't transformed correctly in our build process
+  to point to our CDN. Until we refactor this code we'll hit the asset bucket
+  directly, even in local development. */
+  --spelling-bee: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/SpellingBee-Icon-Normalized.svg');
+  --daily: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/Crossword-Icon-Normalized.svg');
+  --mini: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/Mini-Icon-Normalized.svg');
+  --tiles: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/Tiles-Icon-Normalized.svg');
+  --sudoku: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/Sudoku-Icon-Normalized.svg');
+  --letter-boxed: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/LetterBoxed-Icon-Normalized.svg');
+  --strands: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/Strands-Icon-Normalized.svg');
+  --zorse: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/Zorse-Icon-Normalized.svg');
+  --connections: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/Connections-Icon.svg');
+  --connections-sports: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/NYT-Connections-Sports-Icon.svg');
+  --nyt: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/NYT-Icon-Normalized.svg');
+  --wirecutter: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/Wirecutter-Icon-Normalized.svg');
+  --cooking: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/Cooking-Icon-Normalized.svg');
+  --athletic: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/Athletic-Icon-Normalized.svg');
+  --stats-auth: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/stats-auth-cta.svg');
+  --wordlebot: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/WordleBot-Icon-Normalized.svg');
+  --wordlebot-walking-icon: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/WordleBot-Walking-Icon-Normalized.svg');
+  --wordle-icon-normalized: url('https://www.nytimes.com/games-assets/v2/assets/wordle/wordle-icon-normalized.svg');
+  --wordle-icon: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/wordle-icon.svg');
+  --wordle-star: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/wordle-green-star.svg');
+  --wordle-fail: url('https://www.nytimes.com/games-assets/v2/assets/wordle/wordle-empty-star.svg');
+  --wordle-progress-1: url('https://www.nytimes.com/games-assets/v2/assets/wordle/wordle_progress_1.svg');
+  --wordle-progress-2: url('https://www.nytimes.com/games-assets/v2/assets/wordle/wordle_progress_2.svg');
+  --wordle-progress-3: url('https://www.nytimes.com/games-assets/v2/assets/wordle/wordle_progress_3.svg');
+  --wordle-progress-4: url('https://www.nytimes.com/games-assets/v2/assets/wordle/wordle_progress_4.svg');
+  --wordle-progress-5: url('https://www.nytimes.com/games-assets/v2/assets/wordle/wordle_progress_5.svg');
+  --gameslogo: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/gameslogo.svg');
+  --stats-problem: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/transparent-wordle-issue.svg');
+  --link-info: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/transparent-wordle-link.svg');
+  --badge-confirm: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/icon-badge-confirm.svg');
+  --badge-fail: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/icon-badge-fail.svg');
+  --large-stats: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/icon-large-stats.svg');
+  --wordle-sb-mini: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/icon-mini-sb.svg');
+  --wordle-share-mini: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/icon-mini-share.svg');
+  --wordle-stats-confirm-mini: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/icon-mini-stats-confirm.svg');
+  --wordle-stats-loaded-mini: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/icon-mini-stats-loaded.svg');
+  --wordle-stats-mini: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/icon-mini-stats.svg');
+  --wordle-stats-mini-check: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/icon-mini-stats-check.svg');
+  --wordlebot-walking: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/WordleBot-walking.svg');
+  --nyt-logo: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/nyt-logo.svg');
+  --hybrid-back: url('https://www.nytimes.com/games-assets/v2/assets/hybrid-back-light-mode.svg');
+  --hybrid-back-dark-mode: url('https://www.nytimes.com/games-assets/v2/assets/hybrid-back-dark-mode.svg');
+  --icon-rotate-wordle: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/icon-rotate-wordle.svg');
+  --california-privacy-icon: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/california-privacy-default.svg');
+  --alert-icon: url('https://www.nytimes.com/games-assets/v2/assets/icons/inline-alert.svg');
+
+  /* Games Icons with no whitespace */
+  --connections-np: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/Connections-Icon-np.svg');
+  --spelling-bee-np: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/Spelling-Bee-Icon-np.svg');
+  --mini-np: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/Mini-Icon-np.svg');
+  --sudoku-np: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/Sudoku-Icon-np.svg');
+  --tiles-np: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/Tiles-Icon-np.svg');
+  --daily-np: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/Crossword-Icon-np.svg');
+  --wordle-np: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/Wordle-Icon-np.svg');
+  --strands-np: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/Strands-Icon-np.svg');
+
+  /* sb-promo */
+  --promo-icon-height: 40px;
+  --promo-icon-width: 40px;
+  --promo-icon-padding: 0px;
+
+  /* auth sb-promo */
+  --spelling-bee-promo: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/SpellingBee-Icon-Normalized.svg');
+}
+
+/* Dark Theme Colors */
+.dark {
+  /* dark mode icons */
+  --spelling-bee: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/SpellingBee-Icon-Normalized-Color.svg');
+  --daily: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/Crossword-Icon-Normalized-Color.svg');
+  --mini: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/Mini-Icon-Normalized-Color.svg');
+  --tiles: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/Tiles-Icon-Normalized-Color.svg');
+  --sudoku: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/Sudoku-Icon-Normalized-Color.svg');
+  --letter-boxed: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/LetterBoxed-Icon-Normalized-Color.svg');
+  --strands: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/Strands-Icon-Normalized-Color.svg');
+  --zorse: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/Zorse-Icon-Normalized-Color.svg');
+  --connections: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/Connections-Icon-Dark-Mode.svg');
+  --connections-sports: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/NYT-Connections-Sports-Icon.svg');
+  --wordle-icon-normalized: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/wordle-icon-padded.svg');
+  --nyt: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/NYT-Icon-Normalized-Color.svg');
+  --athletic: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/Athletic-Icon-Normalized-Color.svg');
+  --stats-auth: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/stats-auth-cta.svg');
+  --wordlebot: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/WordleBot-Icon-Normalized-Color.svg');
+  --wordlebot-walking-icon: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/WordleBot-Walking-Icon-Color.svg');
+  --stats-problem: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/transparent-wordle-issue.svg');
+  --link-info: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/dark-mode-wordle-link.svg');
+  --gameslogo: url('https://www.nytimes.com/games-assets/v2/assets/wordle/page-icons/whitegameslogo.svg');
+  --california-privacy-icon: url('https://www.nytimes.com/games-assets/v2/assets/wordle/nav-icons/california-privacy-dark.svg');
+  --alert-icon: url('https://www.nytimes.com/games-assets/v2/assets/icons/inline-alert-dark.svg');
+
+  /* dark mode sb-promo */
+  --promo-icon-height: 27px;
+  --promo-icon-width: 27px;
+  --promo-icon-bg-size: 35px;
+   --promo-icon-padding: 4px; /* TODO: NONDIRECTIONAL SPACING TOKEN REQUIRED */
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  background-color: var(--color-background);
+  margin: 0;
+  padding: 0;
+  /* Prevent scrollbar appearing on page transition */
+  overflow-y: hidden;
+
+  &.scrollable {
+    overflow-y: unset;
+  }
+}
+
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+a {
+  &:focus-visible {
+    outline: 2px solid var(--outline-focus);
+  }
+}
+
+/* Responsive styles */
+@media (min-width: 415px) {
+  :root {
+    --header-height: 65px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --header-padding-x: var(--horizontal-spacing-3);
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-padding-x: var(--horizontal-spacing-2-5);
+  }
+}
+
+/* Platform rules from foundation layout.scss */
+.pz-play-tab .pz-hide-play-tab,
+.pz-newsreader.pz-ios .pz-hide-newsreader-ios,
+.pz-newsreader.pz-android .pz-hide-newsreader-android,
+.pz-newsreader .pz-hide-newsreader,
+.pz-games-app-ios .pz-hide-games-app-ios,
+.pz-games-app-android .pz-hide-games-app-android,
+.pz-games-app .pz-hide-games-app,
+body:not(.pz-hybrid) .pz-hide-web {
+  display: none;
+}
+
+#root {
+  height: 100%;
+}
+

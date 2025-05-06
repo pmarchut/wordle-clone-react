@@ -1,0 +1,63 @@
+@use '../shared/scss-helpers/fonts.scss';
+@use '../shared/scss-helpers/variables.scss';
+@use '../shared/Toolbar/index.scss';
+@use "sass:map";
+
+.dropdown__menu {
+  font-family: fonts.$franklin;
+  display: block;
+  position: absolute;
+  z-index: 5;
+  top: variables.$nav-height-mobile;
+  right: 0;
+  text-wrap: nowrap;
+
+  &Item {
+    @extend .toolbarColors_border;
+
+    a,
+    button {
+      @extend .toolbarColors !optional;
+      border: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 152px;
+      padding: var(--spacing-1-5);
+      text-decoration: none;
+    }
+
+    button {
+      width: 100%;
+    }
+
+    [target='_blank']::after {
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      content: '. opens in a new tab';
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+    }
+  }
+}
+
+/* Responsive styles */
+@media (min-width: map.get(variables.$grid-breakpoints, lg)) {
+  .dropdown__menu {
+    &.noTitleBannerIsPresent {
+      // if game title banner is present, it should stay 48px
+      top: 52px;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .dropdown__menu {
+    &.wordle {
+      top: variables.$nav-height-desktop;
+    }
+  }
+}

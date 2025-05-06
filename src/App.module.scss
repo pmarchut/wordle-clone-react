@@ -1,0 +1,24 @@
+.gameContainer {
+    position: relative;
+    height: 100%;
+  }
+  
+  :global(.pz-offline-ticker) {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    font-weight: bold;
+  
+    svg {
+      path {
+        fill: var(--white);
+      }
+    }
+  }
+  
+  :global(.portal-content) {
+    position: relative;
+    top: calc(var(--header-height) + 5px);
+  }
+  

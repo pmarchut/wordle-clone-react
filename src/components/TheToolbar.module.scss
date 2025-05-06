@@ -1,0 +1,49 @@
+@use '../shared/scss-helpers/mixins.scss';
+@use '../shared/scss-helpers/variables.scss';
+@use '../shared/scss-helpers/colors.scss';
+@use '../shared/Toolbar/index.scss';
+
+.header {
+  width: 100%;
+}
+
+:global(.toolbar) {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  height: variables.$nav-height-mobile;
+
+  div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+  }
+}
+
+/* Game Specific styles*/
+.wordle {
+  height: variables.$nav-height-mobile;
+
+  @extend .toolbarColors_borderBottom;
+  justify-content: end;
+  padding: 0 var(--horizontal-spacing-2) 0 0;
+
+  /* Responsive styles */
+  @media (min-width: 768px) {
+    padding: 0 var(--horizontal-spacing-2);
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0 var(--horizontal-spacing-3);
+    height: variables.$nav-height-desktop;
+  }
+}
+
+/* Dark Theme Colors */
+:global(.dark) {
+  color: colors.$newsDarkContentPrimary;
+  border-bottom: 1px solid colors.$gray26;
+}
