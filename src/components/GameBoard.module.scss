@@ -1,0 +1,33 @@
+@use '../shared/scss-helpers/variables.scss';
+@use "sass:map";
+
+.boardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  overflow: unset;
+}
+
+.board {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  grid-gap: 5px; // TODO: NONDIRECTIONAL SPACING TOKEN REQUIRED
+  padding: 10px; // TODO: NONDIRECTIONAL SPACING TOKEN REQUIRED
+  box-sizing: border-box;
+}
+
+/* Responsive styles */
+@media (min-height: map.get(variables.$grid-breakpoints, sm)) {
+  .board {
+    width: 300px;
+    height: 360px;
+  }
+}
+
+@media (min-height: map.get(variables.$grid-breakpoints, md)) {
+  .board {
+    width: 350px;
+    height: 420px;
+  }
+}

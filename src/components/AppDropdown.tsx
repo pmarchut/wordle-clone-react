@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react"
 import styles from "./AppDropdown.module.scss"
-import { showHelpDialog } from "@/stores/dialogSlice";
+import { showHelpDialog } from "@/stores/dialogsSlice";
 import { useAppDispatch } from "@/stores/store";
 
 function AppDropdown({ leftPosition, closeDropdown }: { 

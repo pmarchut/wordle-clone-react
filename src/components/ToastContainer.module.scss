@@ -1,0 +1,16 @@
+.toastContainer {
+  position: relative;
+}
+
+.toaster {
+  position: absolute;
+  top: 45px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  pointer-events: none;
+  width: fit-content;
+}
+
+.gameToaster {
+  z-index: var(--toast-z-index);
+}

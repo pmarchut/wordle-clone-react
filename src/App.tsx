@@ -2,8 +2,10 @@ import styles from "./App.module.scss"
 import { useEffect } from "react"
 import TheDialog from "./components/TheDialog"
 import TheToolbar from "./components/TheToolbar"
+import TheGame from "./components/TheGame"
+import ToastContainer from "./components/ToastContainer"
 import { useAppDispatch, useAppSelector } from '@/stores/store'
-import { hideDialog } from '@/stores/dialogSlice'
+import { hideDialog } from '@/stores/dialogsSlice'
 
 function App() {
   const dialogs = useAppSelector((state) => state.dialogs);
@@ -30,13 +32,13 @@ function App() {
 
   return (
     <>
-      {/* <ToastContainer /> */}
+      <ToastContainer />
       <div 
         className={`${styles.gameContainer}`}
         data-testid="game-wrapper"
       >
         <TheToolbar />
-        {/* <TheGame /> */}
+        <TheGame />
       </div>
       {dialogs.dialog && 
       <TheDialog 

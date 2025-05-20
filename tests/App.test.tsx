@@ -1,8 +1,11 @@
-import { render, fireEvent, screen } from "@testing-library/react";
+import { render, fireEvent, screen, act, waitFor } from "@testing-library/react";
 import '@testing-library/jest-dom'
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
-import dialogsReducer, { DialogProps } from "../src/stores/dialogSlice";
+import dialogsReducer, { DialogProps } from "../src/stores/dialogsSlice";
+import guessesReducer from "../src/stores/guessesSlice";
+import toastsReducer from "../src/stores/toastsSlice";
+import userEvent from "@testing-library/user-event";
 import App from '../src/App';
 
 // 📌 Funkcja pomocnicza
@@ -10,6 +13,8 @@ const factoryRender = (dialogState: DialogProps | null = null) => {
   const store = configureStore({
     reducer: {
       dialogs: dialogsReducer,
+      guesses: guessesReducer,
+      toasts: toastsReducer,
     },
     preloadedState: {
       dialogs: {
@@ -190,5 +195,46 @@ describe("App", () => {
     // ✅ komponent AppSettings powinien być w dialogu
     // Jeżeli AppSettings renderuje np. jakiś nagłówek lub tekst, to sprawdzamy jego obecność
     expect(screen.getByText(/settings/i)).toBeInTheDocument();
+  });
+
+  it('shows animation and toast when not enough letters', async () => {
+    jest.useFakeTimers(); // ⏱️ Włącz fake timery
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime }); // ⏱️ zsynchronizowane timery
+  
+    const { container } = factoryRender();
+    const enterButton = container.querySelector('[data-key="↵"]');
+    await user.click(enterButton!);
+  
+    const row = screen.getByLabelText("Row 1");
+    expect(row).toHaveClass("invalid");
+  
+    let toast = container.querySelector("#gameToaster");
+    expect(toast?.querySelector('[aria-live="polite"]')).toHaveTextContent("Not enough letters");
+  
+    // 🔄 Upływ czasu
+    act(() => {
+      jest.runAllTimers(); // uruchamia setTimeout
+    });
+  
+    await waitFor(() => {
+      expect(row).not.toHaveClass("invalid");
+      expect(container.querySelector('[aria-live="polite"]')).not.toBeInTheDocument();
+    });
+  
+    // 🔥 ponownie klikamy
+    await user.click(enterButton!);
+  
+    expect(row).toHaveClass("invalid");
+    toast = container.querySelector("#gameToaster");
+    expect(toast?.querySelector('[aria-live="polite"]')).toHaveTextContent("Not enough letters");
+  
+    act(() => {
+      jest.runAllTimers();
+    });
+  
+    await waitFor(() => {
+      expect(row).not.toHaveClass("invalid");
+      expect(container.querySelector('[aria-live="polite"]')).not.toBeInTheDocument();
+    });
   });
 });

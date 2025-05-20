@@ -1,17 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export interface DialogProps {
-    type: "help Dialog" | "settings Dialog",
-    id: string,
-    heading: string,
+  type: "help Dialog" | "settings Dialog",
+  id: string,
+  heading: string,
 }
 
 const initialState = {
-    dialog: {
-        type: "help Dialog",
-        id: "help-dialog",
-        heading: "How to Play",
-    } as DialogProps | null,
+  dialog: {
+    type: "help Dialog",
+    id: "help-dialog",
+    heading: "How to Play",
+  } as DialogProps | null,
 };
 
 const dialogsSlice = createSlice({

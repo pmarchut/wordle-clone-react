@@ -3,7 +3,7 @@ import TheToolbar from "@/components/TheToolbar";
 import '@testing-library/jest-dom';
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
-import dialogsReducer from "../src/stores/dialogSlice";
+import dialogsReducer from "../src/stores/dialogsSlice";
 import userEvent from "@testing-library/user-event";
 
 // 📌 Funkcja pomocnicza

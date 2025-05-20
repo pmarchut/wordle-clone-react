@@ -1,0 +1,14 @@
+.keyboard {
+    height: var(--keyboard-height);
+    margin: 0 var(--horizontal-spacing-1);
+    user-select: none;
+  }
+  
+  .row {
+    display: flex;
+    width: 100%;
+    margin: 0 auto var(--vertical-spacing-1);
+    /* https://stackoverflow.com/questions/46167604/ios-html-disable-double-tap-to-zoom */
+    touch-action: manipulation;
+  }
+  

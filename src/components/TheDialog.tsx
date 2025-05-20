@@ -1,5 +1,5 @@
 import styles from './TheDialog.module.scss'
-import { DialogProps } from '../stores/dialogSlice'
+import { DialogProps } from '../stores/dialogsSlice'
 import AppHelp from './AppHelp'
 import AppSettings from './AppSettings'
 

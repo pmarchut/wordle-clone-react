@@ -7,7 +7,7 @@ const factoryRender = () => {
   return render(
     <AppTile 
       ariaLabel="1st letter, W, correct"
-      dataState="correct" 
+      state="correct" 
       dataAnimation="flip-in"
     >
       w

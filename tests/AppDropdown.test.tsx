@@ -3,7 +3,7 @@ import AppDropdown from "@/components/AppDropdown"; // dopasuj ścieżkę
 import '@testing-library/jest-dom';
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
-import dialogsReducer from "../src/stores/dialogSlice";
+import dialogsReducer from "../src/stores/dialogsSlice";
 
 // 📌 Funkcja pomocnicza
 const factoryRender = () => {

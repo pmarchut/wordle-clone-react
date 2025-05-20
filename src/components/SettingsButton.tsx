@@ -1,6 +1,6 @@
 import styles from "./ToolbarShared.module.scss"
 import { useAppDispatch } from "@/stores/store"
-import { showSettingsDialog } from "@/stores/dialogSlice"
+import { showSettingsDialog } from "@/stores/dialogsSlice"
 
 function SettingsButton() {
     const dispatch = useAppDispatch()

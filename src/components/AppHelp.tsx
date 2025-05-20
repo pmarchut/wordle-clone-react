@@ -21,11 +21,11 @@ function AppHelp() {
                         role="group" 
                         aria-roledescription="Example"
                     >
-                        <div data-testid="wordy-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="1st letter, W, correct" dataState="correct" dataAnimation="flip-in">w</AppTile></div>
-                        <div data-testid="wordy-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="2nd letter, O" dataState="tbd" dataAnimation="idle">o</AppTile></div>
-                        <div data-testid="wordy-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="3rd letter, R" dataState="tbd" dataAnimation="idle">r</AppTile></div>
-                        <div data-testid="wordy-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="4th letter, D" dataState="tbd" dataAnimation="idle">d</AppTile></div>
-                        <div data-testid="wordy-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="5th letter, Y" dataState="tbd" dataAnimation="idle">y</AppTile></div>
+                        <div data-testid="wordy-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="1st letter, W, correct" state="correct" dataAnimation="flip-in">w</AppTile></div>
+                        <div data-testid="wordy-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="2nd letter, O" state="tbd" dataAnimation="idle">o</AppTile></div>
+                        <div data-testid="wordy-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="3rd letter, R" state="tbd" dataAnimation="idle">r</AppTile></div>
+                        <div data-testid="wordy-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="4th letter, D" state="tbd" dataAnimation="idle">d</AppTile></div>
+                        <div data-testid="wordy-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="5th letter, Y" state="tbd" dataAnimation="idle">y</AppTile></div>
                         <p><strong>W</strong> is in the word and in the correct spot.</p>
                     </div>
                     <div 
@@ -34,11 +34,11 @@ function AppHelp() {
                         role="group" 
                         aria-roledescription="Example"
                     >
-                        <div data-testid="light-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="1st letter, L" dataState="tbd" dataAnimation="idle">l</AppTile></div>
-                        <div data-testid="light-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="2nd letter, I, present in another position" dataState="present" dataAnimation="flip-in">i</AppTile></div>
-                        <div data-testid="light-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="3rd letter, G" dataState="tbd" dataAnimation="idle">g</AppTile></div>
-                        <div data-testid="light-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="4th letter, H" dataState="tbd" dataAnimation="idle">h</AppTile></div>
-                        <div data-testid="light-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="5th letter, T" dataState="tbd" dataAnimation="idle">t</AppTile></div>
+                        <div data-testid="light-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="1st letter, L" state="tbd" dataAnimation="idle">l</AppTile></div>
+                        <div data-testid="light-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="2nd letter, I, present in another position" state="present" dataAnimation="flip-in">i</AppTile></div>
+                        <div data-testid="light-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="3rd letter, G" state="tbd" dataAnimation="idle">g</AppTile></div>
+                        <div data-testid="light-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="4th letter, H" state="tbd" dataAnimation="idle">h</AppTile></div>
+                        <div data-testid="light-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="5th letter, T" state="tbd" dataAnimation="idle">t</AppTile></div>
                         <p><strong>I</strong> is in the word but in the wrong spot.</p>
                     </div>
                     <div 
@@ -47,11 +47,11 @@ function AppHelp() {
                         role="group" 
                         aria-roledescription="Example"
                     >
-                        <div data-testid="rogue-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="1st letter, R" dataState="tbd" dataAnimation="idle">r</AppTile></div>
-                        <div data-testid="rogue-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="2nd letter, O" dataState="tbd" dataAnimation="idle">o</AppTile></div>
-                        <div data-testid="rogue-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="3rd letter, G" dataState="tbd" dataAnimation="idle">g</AppTile></div>
-                        <div data-testid="rogue-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="4th letter, U, absent" dataState="absent" dataAnimation="flip-in">u</AppTile></div>
-                        <div data-testid="rogue-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="5th letter, E" dataState="tbd" dataAnimation="idle">e</AppTile></div>
+                        <div data-testid="rogue-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="1st letter, R" state="tbd" dataAnimation="idle">r</AppTile></div>
+                        <div data-testid="rogue-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="2nd letter, O" state="tbd" dataAnimation="idle">o</AppTile></div>
+                        <div data-testid="rogue-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="3rd letter, G" state="tbd" dataAnimation="idle">g</AppTile></div>
+                        <div data-testid="rogue-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="4th letter, U, absent" state="absent" dataAnimation="flip-in">u</AppTile></div>
+                        <div data-testid="rogue-letter" className={`${styles.tileContainer}`}><AppTile small ariaLabel="5th letter, E" state="tbd" dataAnimation="idle">e</AppTile></div>
                         <p><strong>U</strong> is not in the word in any spot.</p>
                     </div>
                 </div>
