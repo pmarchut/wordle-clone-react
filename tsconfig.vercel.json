@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.node.json",
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "node",         // 👈 zmienione z "bundler"
+    "esModuleInterop": true,
+    "allowJs": true,                    // 👈 potrzebne jeśli masz np. .js
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["api/**/*.ts"]
+}
