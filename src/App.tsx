@@ -6,10 +6,17 @@ import TheGame from "./components/TheGame"
 import ToastContainer from "./components/ToastContainer"
 import { useAppDispatch, useAppSelector } from '@/stores/store'
 import { hideDialog } from '@/stores/dialogsSlice'
+import { initWords } from "./stores/wordsSlice"
 
 function App() {
   const dialogs = useAppSelector((state) => state.dialogs);
   const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    //test
+    //console.log("App mounted")
+    dispatch(initWords())
+  }, [dispatch]);
 
   useEffect(() => {
     const darkMode = localStorage.getItem("wordle-darkmode");

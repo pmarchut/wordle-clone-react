@@ -12,6 +12,8 @@
     color: var(--tile-text-color);
     text-transform: uppercase;
     user-select: none;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
   }
   .tile::before {
     content: '';
@@ -79,6 +81,7 @@
     animation-name: FlipIn;
     animation-duration: 250ms;
     animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
   }
   
   @keyframes FlipIn {
@@ -93,6 +96,7 @@
     animation-name: FlipOut;
     animation-duration: 250ms;
     animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
   }
   
   @keyframes FlipOut {

@@ -2,6 +2,7 @@ import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import dialogsReducer from "./dialogsSlice";
 import guessesReducer from "./guessesSlice";
 import toastsReducer from "./toastsSlice";
+import wordsReducer from "./wordsSlice";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 export const store = configureStore({
@@ -9,6 +10,7 @@ export const store = configureStore({
     dialogs: dialogsReducer,
     guesses: guessesReducer,
     toasts: toastsReducer,
+    words: wordsReducer,
   },
 });
 
