@@ -2,7 +2,7 @@ let cachedWord: string | null = null;
 
 export async function fetchWordList(): Promise<string[]> {
     try {
-        const res = await fetch("/functions/wordlist");
+        const res = await fetch("/api/wordlist");
         const data = await res.json();
         const wordList = data?.word_pages[0]?.word_list;
 

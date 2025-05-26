@@ -12,7 +12,7 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      '/functions/wordlist': {
+      '/api/wordlist': {
         target: 'https://fly.wordfinderapi.com',
         changeOrigin: true,
         rewrite: () =>
